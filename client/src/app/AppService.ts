@@ -44,7 +44,8 @@ const processStateChange = (appState: AppState): void => {
 
 export const AppService = {
     init,
-    send
+    send,
+    getUserId
 }
 
 

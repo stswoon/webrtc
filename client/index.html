@@ -12,9 +12,22 @@
 </head>
 <body>
 
-<div id="myCam"></div>
+<button id="webcamButton">Start webcam</button>
+<button id="callButton">Create Call (offer)</button>
 
-<div id="otherCams"></div>
+<div class="videos">
+    <span>
+        <h3>Local Stream</h3>
+        <video id="webcamVideo" autoplay playsinline></video>
+    </span>
+</div>
+
+<div id="otherCams">
+    <span>
+        <h3>Remote Stream</h3>
+        <video id="remoteVideo" autoplay playsinline></video>
+    </span>
+</div>
 
 </body>
 </html>

@@ -39,7 +39,10 @@ export class RoomService {
             console.log(`Client send H (heartbeat), userId=${userId}`);
             return;
         }
-        console.error(`Not supported message from user (${userId})`)
+        const parsedMag = JSON.parse(msg);
+        const foundUser = this.getUser(userId)!;
+        foundUser.candidate = parsedMag.candidate
+        this.broadcastRoomState();
     }
 
     userDisconnect(userId: string): void {

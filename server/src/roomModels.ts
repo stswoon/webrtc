@@ -5,4 +5,5 @@ export interface Room {
 export interface User {
     id: string;
     active: boolean;
+    candidate?: string
 }
