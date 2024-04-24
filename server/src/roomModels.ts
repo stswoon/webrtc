@@ -5,5 +5,7 @@ export interface Room {
 export interface User {
     id: string;
     active: boolean;
-    candidate?: string
+    offer?: any;
+    candidate?: any
+    answer?: any
 }

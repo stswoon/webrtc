@@ -39,9 +39,12 @@ export class RoomService {
             console.log(`Client send H (heartbeat), userId=${userId}`);
             return;
         }
-        const parsedMag = JSON.parse(msg);
+        const parsedMsg = JSON.parse(msg);
         const foundUser = this.getUser(userId)!;
-        foundUser.candidate = parsedMag.candidate
+        const userModel: User = JSON.parse(parsedMsg.text);
+        foundUser.candidate = userModel.candidate
+        foundUser.offer = userModel.offer;
+        foundUser.answer = userModel.answer;
         this.broadcastRoomState();
     }
 

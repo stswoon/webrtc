@@ -38,14 +38,24 @@ const getUserId = (): string | null => localStorage.getItem("userId");
 const send = (message: string): void => WsService.send({userId: getUserId(), text: message});
 
 const processStateChange = (appState: AppState): void => {
-    //TODO
+    console.log("WS Event");
     console.log(appState);
+    processStateChangeCallbacks.forEach(callback => {
+        console.log("Call callback");
+        callback(appState);
+    })
+}
+
+let processStateChangeCallbacks: any[] = []
+const onProcessStateChange = (callback: any): void => {
+    processStateChangeCallbacks.push(callback);
 }
 
 export const AppService = {
     init,
     send,
-    getUserId
+    getUserId,
+    onProcessStateChange
 }
 
 
